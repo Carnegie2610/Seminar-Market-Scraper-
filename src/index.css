@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #E4E3E0;
+  --color-ink: #141414;
+  --color-line: #141414;
+  --font-mono: 'Courier New', Courier, monospace;
+  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-serif: 'Georgia', serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+}
+
+@layer components {
+  /* Visible grid borders—don't hide the structure, celebrate it */
+  .data-row {
+    display: grid;
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-line);
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  /* Invert on hover—creates strong interactive feedback */
+  .data-row.interactive:hover {
+    background: var(--color-ink);
+    color: var(--color-bg);
+  }
+
+  /* Italic serif column headers—humanizes the data */
+  .col-header {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 13px;
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Monospace for data values—signals precision */
+  .data-value {
+    font-family: var(--font-mono);
+    letter-spacing: -0.02em;
+    font-size: 14px;
+  }
+  
+  /* Thick single-line borders */
+  .panel-border {
+    border: 1px solid var(--color-ink);
+  }
+}
